@@ -2,6 +2,19 @@ package entities
 
 import "encoding/json"
 
+//MySQLFormData entity is stored in main storage (Firebase/Redis)
+type MySQLFormData struct {
+	Mode      string   `firestore:"mode" json:"mode"`
+	TableName string   `firestore:"tableName" json:"tableName"`
+	PKFields  []string `firestore:"pkFields" json:"pkFields"`
+
+	Db       string      `firestore:"mysqlDatabase" json:"mysqlDatabase"`
+	Host     string      `firestore:"mysqlHost" json:"mysqlHost"`
+	Password string      `firestore:"mysqlPassword" json:"mysqlPassword"`
+	Port     json.Number `firestore:"mysqlPort" json:"mysqlPort"`
+	Username string      `firestore:"mysqlUser" json:"mysqlUser"`
+}
+
 //PostgresFormData entity is stored in main storage (Firebase/Redis)
 type PostgresFormData struct {
 	Mode      string   `firestore:"mode" json:"mode"`
